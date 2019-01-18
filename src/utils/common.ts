@@ -5,7 +5,7 @@ import { Model } from 'mongoose'
  * 加密
  *
  * @export
- * @param {*} password
+ * @param data {string}
  * @returns
  */
 export function cryptData(data: string) {
@@ -17,8 +17,8 @@ export function cryptData(data: string) {
  * 根据条件检查数据库中是否已存在该数据
  *
  * @export
- * @param {Model<any>} model
- * @param {{ [key: string]: any }} conditions
+ * @param model
+ * @param conditions
  * @returns
  */
 export async function isDocumentExist(model: Model<any>, conditions: { [key: string]: any }) {
@@ -33,18 +33,20 @@ export async function isDocumentExist(model: Model<any>, conditions: { [key: str
 export interface ResData {
     data: any
     msg: string
-    errCode: number
+    code: number,
+    status: Boolean,
 }
 
 /**
  * 生成api返回的数据
  *
  * @export
- * @param {*} data
- * @param {string} [msg='']
- * @param {number} [errCode=0]
- * @returns {ResData}
+ * @param data
+ * @param msg
+ * @param code
+ * @param status
+ * @returns
  */
-export function createResData(data: any, msg = 'success', errCode = 0): ResData {
-    return { data, msg, errCode }
+export function createResData(data: any, msg = 'success', code = 0, status = true): ResData {
+    return { data, msg, code, status }
 }

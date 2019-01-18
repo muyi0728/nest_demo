@@ -5,6 +5,7 @@ import CreateDto from './dto/create.dto'
 import ModifyDto from './dto/modify.dto'
 import DeleteDto from './dto/delete.dto'
 import SearchDto from './dto/search.dto'
+import CommodityDto from './dto/commodity.dto'
 
 @Controller('user')
 export default class UserController {
@@ -13,6 +14,21 @@ export default class UserController {
     @Get()
     findAll(@Query() searchDto: SearchDto) {
         return this.userService.findAll(searchDto)
+    }
+
+    @Get('get-grid-nav')
+    getGridNav() {
+        return this.userService.getGridNav()
+    }
+
+    @Get('get-carouse')
+    getCarouselList() {
+        return this.userService.getCarouselList()
+    }
+
+    @Get('get-commodity-info')
+    getCommodityInfo(@Query() commodityDto: CommodityDto) {
+        return this.userService.getCommodityInfoList(commodityDto)
     }
 
     @Post('create')

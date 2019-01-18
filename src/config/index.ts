@@ -29,5 +29,25 @@ export const UNNECESSARY_AUTH_ROUTERS: IRouterConfig[] = [
     {
         path: '/auth/login',
         exact: true
+    },
+    {
+        path: '/user/create',
+        exact: true
+    },
+    {
+        path: '/menu/create',
+        exact: true
+    },
+    {
+        path: '/user/get-grid-nav',
+        exact: true
+    },
+    {
+        path: '/user/get-carouse',
+        exact: true
+    },
+    {
+        path: '/user/get-commodity-info',
+        exact: true
     }
 ]

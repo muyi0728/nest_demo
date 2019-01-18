@@ -1,4 +1,5 @@
 import { NestFactory } from '@nestjs/core'
+// import { ValidationPipe } from '@nestjs/common'
 import * as dotenv from 'dotenv'
 import { DOTENV_PATH, API_PREFIX } from 'config'
 
@@ -6,14 +7,14 @@ import { DOTENV_PATH, API_PREFIX } from 'config'
 dotenv.config({ path: DOTENV_PATH })
 
 import { AppModule } from './app.module'
-import WildcardsIoAdapter from './modules/socket/wildcardsIoAdapter'
+// import WildcardsIoAdapter from './modules/socket/wildcardsIoAdapter'
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule)
     // support cors
-    app.enableCors()
+    // app.enableCors()
     // switch to newly created socket adapter
-    app.useWebSocketAdapter(new WildcardsIoAdapter())
+    // app.useWebSocketAdapter(new WildcardsIoAdapter())
     // global api prefix
     app.setGlobalPrefix(API_PREFIX)
     await app.listen(9999)
