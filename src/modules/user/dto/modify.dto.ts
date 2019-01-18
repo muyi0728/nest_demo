@@ -1,4 +1,4 @@
-import { UserCategory } from './../interface'
+import { UserCategory } from '../interface'
 
 export default class ModifyDto {
     readonly _id: string
